@@ -3,453 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4Buds.com // Everything Gardening & Plant Hub</title>
+    <title>4Buds.com — Everything Gardening</title>
     
-    <!-- SEO & METADATA -->
-    <meta name="description" content="Your all-in-one gardening hub. Search plant care guides, lookup regional planting calendars by ZIP code, connect with local seed swaps, and track seasonal growth checklist.">
-    <meta name="keywords" content="4Buds, 4Buds.com, Gardening, Plant Care, Seed Swap, Hardiness Zone, Plant Search, Vegetable Gardening">
+    <!-- PRIMARY SEO META TAGS -->
+    <meta name="description" content="Discover plant care guides, lookup regional planting calendars by ZIP code, connect with local seed swaps, and track seasonal garden checklists at 4Buds.com.">
+    <meta name="keywords" content="4Buds, 4Buds.com, Gardening, Plant Care, Seed Swap, Hardiness Zone, Plant Search, Vegetable Gardening, Houseplants">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://4buds.com/">
 
     <!-- OPEN GRAPH / SOCIAL PREVIEWS -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://4buds.com/">
-    <meta property="og:title" content="4Buds.com // Everything Gardening">
-    <meta property="og:description" content="Search plant care guides, lookup regional planting calendars, connect with local seed swaps, and track seasonal growth.">
-    <meta property="og:image" content="https://4buds.com/og-gardening.jpg">
+    <meta property="og:title" content="4Buds.com — Everything Gardening">
+    <meta property="og:description" content="Plant care guides, regional calendars, local seed swapping, and seasonal growth tracking.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1200&q=80">
 
-    <!-- MOBILE THEME -->
-    <meta name="theme-color" content="#0e1410">
+    <!-- FONTS & ICONS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <meta name="theme-color" content="#06120a">
 
     <style>
         :root {
-            --bg-color: #0b0e12;
-            --card-bg: #111714;
-            --border-color: #1b2820;
-            --accent-green: #4caf50;
-            --accent-light: #81c784;
-            --text-main: #d1d5db;
-            --text-muted: #829288;
+            --bg-color: #06120a;
+            --surface-color: rgba(12, 28, 18, 0.75);
+            --card-bg: rgba(18, 38, 25, 0.6);
+            --border-color: rgba(74, 120, 86, 0.25);
+            --border-hover: rgba(74, 222, 128, 0.4);
+            --emerald-primary: #10b981;
+            --emerald-bright: #4ade80;
+            --emerald-glow: rgba(74, 222, 128, 0.15);
+            --gold-accent: #fbbf24;
+            --text-main: #f0fdf4;
+            --text-muted: #a7f3d0;
+            --text-sub: #6ee7b7;
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
-            font-family: "Courier New", Courier, monospace;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             min-height: 100vh;
-            box-sizing: border-box;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
+            padding-bottom: 60px;
         }
 
         .container {
-            max-width: 800px;
-            width: 100%;
-            border: 1px solid var(--border-color);
-            padding: 24px;
-            background-color: #060907;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
+        /* HEADER & NAVIGATION */
         header {
+            padding: 24px 0;
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(6, 18, 10, 0.85);
         }
 
-        h1 {
-            color: #f0fdf4;
-            font-size: 1.4rem;
-            margin: 0 0 5px 0;
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--emerald-primary), #047857);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 1.2rem;
+            box-shadow: 0 0 20px var(--emerald-glow);
+        }
+
+        .brand-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-main);
             letter-spacing: 1px;
         }
 
-        p.subtitle {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin: 0;
+        .brand-name span {
+            color: var(--emerald-bright);
         }
 
-        /* NAVIGATION TABS */
-        .nav-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 12px;
+        .brand-tagline-sm {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: block;
+            margin-top: -4px;
         }
 
-        .tab-btn {
-            background: #0f1612;
-            color: var(--text-muted);
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            padding: 80px 0 60px 0;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin: 30px 0 50px 0;
+            background: linear-gradient(180deg, rgba(6, 18, 10, 0.3) 0%, rgba(6, 18, 10, 0.95) 100%),
+                        url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
             border: 1px solid var(--border-color);
-            padding: 8px 14px;
-            font-family: inherit;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            text-align: center;
         }
 
-        .tab-btn:hover {
-            background: #17221b;
-            color: var(--accent-light);
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
         }
 
-        .tab-btn.active {
-            background: var(--accent-green);
-            color: #050806;
-            font-weight: bold;
-            border-color: var(--accent-green);
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid var(--emerald-bright);
+            color: var(--emerald-bright);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(8px);
         }
 
-        .tab-content {
-            display: none;
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: #ffffff;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
         }
 
-        .tab-content.active {
+        .hero-title span {
+            background: linear-gradient(135deg, var(--emerald-bright), #a7f3d0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--emerald-bright);
             display: block;
         }
 
-        /* INPUTS & BUTTONS */
-        input[type="text"], input[type="email"], select {
-            background: #0d130f;
-            border: 1px solid #233529;
-            color: #f0fdf4;
-            padding: 10px;
-            font-family: inherit;
-            width: 100%;
-            box-sizing: border-box;
-            margin-bottom: 12px;
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        input:focus, select:focus {
-            outline: none;
-            border-color: var(--accent-green);
+        /* NAVIGATION TABS */
+        .tabs-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
         }
 
-        button.action-btn {
-            background: #142018;
-            color: var(--accent-light);
-            border: 1px solid var(--accent-green);
-            padding: 10px 18px;
-            font-family: inherit;
-            font-size: 0.85rem;
-            cursor: pointer;
-        }
-
-        button.action-btn:hover {
-            background: var(--accent-green);
-            color: #050806;
-        }
-
-        /* CARDS & RESULTS */
-        .grid-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .card {
-            background: var(--card-bg);
+        .tab-button {
+            background: var(--surface-color);
             border: 1px solid var(--border-color);
-            padding: 14px;
-            border-radius: 2px;
-        }
-
-        .card h3 {
-            margin: 0 0 8px 0;
-            color: var(--accent-light);
-            font-size: 1rem;
-        }
-
-        .tag {
-            display: inline-block;
-            background: #18281d;
-            color: var(--accent-green);
-            font-size: 0.7rem;
-            padding: 2px 6px;
-            margin-right: 4px;
-            margin-bottom: 6px;
-            border: 1px solid #213828;
-        }
-
-        .info-box {
-            background: #0f1612;
-            border-left: 3px solid var(--accent-green);
-            padding: 12px;
-            margin: 15px 0;
-            font-size: 0.85rem;
-        }
-
-        /* CHECKLIST */
-        .check-item {
+            color: var(--text-muted);
+            padding: 14px 24px;
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 8px;
-            font-size: 0.85rem;
+            backdrop-filter: blur(10px);
         }
 
-        .check-item input[type="checkbox"] {
-            accent-color: var(--accent-green);
-            width: 16px;
-            height: 16px;
-            cursor: pointer;
+        .tab-button:hover {
+            border-color: var(--border-hover);
+            color: #ffffff;
+            transform: translateY(-2px);
         }
 
-        footer {
-            margin-top: 30px;
-            padding-top: 15px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-
-    <header>
-        <h1>4BUDS.COM // EVERYTHING GARDENING</h1>
-        <p class="subtitle">Your Plant Care Guide, Regional Calendar &amp; Local Seed Swap Hub</p>
-    </header>
-
-    <!-- NAVIGATION TABS -->
-    <div class="nav-tabs">
-        <button class="tab-btn active" onclick="switchTab('tab-finder')">BUD FINDER (PLANTS)</button>
-        <button class="tab-btn" onclick="switchTab('tab-zone')">REGIONAL CALENDAR</button>
-        <button class="tab-btn" onclick="switchTab('tab-swap')">SEED SWAP CLUB</button>
-        <button class="tab-btn" onclick="switchTab('tab-checklist')">SEASONAL CHECKLIST</button>
-    </div>
-
-    <!-- TAB 1: PLANT FINDER -->
-    <div id="tab-finder" class="tab-content active">
-        <h2>PLANT CARE SEARCH ENGINE</h2>
-        <p style="font-size: 0.85rem; color: var(--text-muted);">Search plant species or filter by light and water requirements.</p>
-        
-        <input type="text" id="plant-search" placeholder="Search plant name (e.g. Tomato, Basil, Monstera)..." oninput="filterPlants()">
-
-        <div id="plant-results" class="grid-cards">
-            <!-- Rendered dynamically -->
-        </div>
-    </div>
-
-    <!-- TAB 2: REGIONAL CALENDAR -->
-    <div id="tab-zone" class="tab-content">
-        <h2>REGIONAL PLANTING CALENDAR</h2>
-        <p style="font-size: 0.85rem; color: var(--text-muted);">Enter your ZIP Code or select your Hardiness Zone to view immediate planting schedules.</p>
-        
-        <div style="display: flex; gap: 10px;">
-            <input type="text" id="zip-input" placeholder="ENTER ZIP CODE (E.G. 23185)" style="margin-bottom: 0;">
-            <button class="action-btn" onclick="lookupZone()">LOOKUP ZONE</button>
-        </div>
-
-        <div id="zone-output" class="info-box" style="display: none;">
-            <!-- Zone results here -->
-        </div>
-
-        <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 20px 0;">
-
-        <h3>GENERAL SEASONAL TIMELINE</h3>
-        <ul style="font-size: 0.85rem; line-height: 1.6; padding-left: 20px; color: var(--text-muted);">
-            <li><strong style="color: var(--accent-light);">SPRING:</strong> Start seeds indoor 6 weeks before last frost. Transplant hardy greens.</li>
-            <li><strong style="color: var(--accent-light);">SUMMER:</strong> Plant heat-tolerant crops (Peppers, Tomatoes). Monitor daily watering.</li>
-            <li><strong style="color: var(--accent-light);">AUTUMN:</strong> Sow cool-season vegetables (Kale, Spinach, Garlic). Mulch soil beds.</li>
-            <li><strong style="color: var(--accent-light);">WINTER:</strong> Indoor microgreens, compost preparation, tool maintenance.</li>
-        </ul>
-    </div>
-
-    <!-- TAB 3: SEED SWAP & COMMUNITY -->
-    <div id="tab-swap" class="tab-content">
-        <h2>GARDENING BUDS // LOCAL SEED &amp; CUTTING SWAP</h2>
-        <p style="font-size: 0.85rem; color: var(--text-muted);">Join the local 4Buds network to trade heirloom seeds, extra harvests, and plant cuttings with nearby gardeners in your sector.</p>
-
-        <form onsubmit="submitSwapRegistry(event)">
-            <label style="font-size: 0.75rem;">FULL NAME</label>
-            <input type="text" id="swap-name" required placeholder="E.G. JANE SMITH">
-
-            <label style="font-size: 0.75rem;">EMAIL ADDRESS</label>
-            <input type="email" id="swap-email" required placeholder="E.G. GARDENER@EMAIL.COM">
-
-            <label style="font-size: 0.75rem;">ZIP CODE / SECTOR</label>
-            <input type="text" id="swap-zip" required placeholder="E.G. 23185">
-
-            <label style="font-size: 0.75rem;">WHAT ARE YOU GROWING OR LOOKING TO SWAP?</label>
-            <input type="text" id="swap-interests" placeholder="E.G. Tomato seeds, Monstera cuttings, Succulents">
-
-            <button type="submit" class="action-btn">REGISTER FOR LOCAL SWAPS</button>
-        </form>
-
-        <div id="swap-success" class="info-box" style="display: none; color: var(--accent-light);">
-            REGISTRATION LOGGED! You will receive local seed swap dispatches in your sector. Share your garden on social media with hashtag <strong>#4Buds</strong> and caption <strong>4Buds.com</strong>!
-        </div>
-    </div>
-
-    <!-- TAB 4: SEASONAL CHECKLIST -->
-    <div id="tab-checklist" class="tab-content">
-        <h2>4 BUDS SEASONAL GROWTH CHECKLIST</h2>
-        <p style="font-size: 0.85rem; color: var(--text-muted);">Track your core garden milestones throughout the season.</p>
-
-        <div class="card">
-            <h3>STAGE 1: SOIL &amp; SEED PREPARATION</h3>
-            <div class="check-item"><input type="checkbox" id="c1" onchange="saveChecklist()"><label for="c1">Test soil pH and add compost/nutrients</label></div>
-            <div class="check-item"><input type="checkbox" id="c2" onchange="saveChecklist()"><label for="c2">Start indoor seed trays with grow lights or window light</label></div>
-        </div>
-
-        <div class="card" style="margin-top: 10px;">
-            <h3>STAGE 2: PLANTING &amp; TRANSPLANTING</h3>
-            <div class="check-item"><input type="checkbox" id="c3" onchange="saveChecklist()"><label for="c3">Harden off seedlings outdoors for 7 days</label></div>
-            <div class="check-item"><input type="checkbox" id="c4" onchange="saveChecklist()"><label for="c4">Transplant warm-season crops after final frost date</label></div>
-        </div>
-
-        <div class="card" style="margin-top: 10px;">
-            <h3>STAGE 3: MAINTENANCE &amp; PROTECTION</h3>
-            <div class="check-item"><input type="checkbox" id="c5" onchange="saveChecklist()"><label for="c5">Apply 2-3 inches of organic mulch to conserve moisture</label></div>
-            <div class="check-item"><input type="checkbox" id="c6" onchange="saveChecklist()"><label for="c6">Prune suckers and inspect weekly for pests</label></div>
-        </div>
-
-        <div class="card" style="margin-top: 10px;">
-            <h3>STAGE 4: HARVEST &amp; SEED SAVING</h3>
-            <div class="check-item"><input type="checkbox" id="c7" onchange="saveChecklist()"><label for="c7">Harvest mature produce at peak ripening</label></div>
-            <div class="check-item"><input type="checkbox" id="c8" onchange="saveChecklist()"><label for="c8">Collect heirloom seeds for next season's seed swap</label></div>
-        </div>
-    </div>
-
-    <footer>
-        &copy; 4Buds.com // Everything Gardening &amp; Plant Care. Community Driven.
-    </footer>
-
-</div>
-
-<script>
-    // PLANT DATABASE
-    const PLANTS = [
-        { name: "Tomato (Heirloom)", cat: "Veggie", light: "Full Sun", water: "Medium-High", diff: "Easy", desc: "Heavy producer. Requires deep watering and cage support." },
-        { name: "Sweet Basil", cat: "Herb", light: "Full Sun", water: "Medium", diff: "Very Easy", desc: "Great companion plant for tomatoes. Pinch tops for bushier growth." },
-        { name: "Monstera Deliciosa", cat: "Indoor", light: "Bright Indirect", water: "Low-Medium", diff: "Easy", desc: "Popular tropical houseplant. Allow top 2 inches of soil to dry." },
-        { name: "Bell Pepper", cat: "Veggie", light: "Full Sun", water: "Medium", diff: "Easy", desc: "Thrives in warm soil. Rich in Vitamin C." },
-        { name: "Snake Plant", cat: "Indoor", light: "Low to Bright", water: "Low", diff: "Very Easy", desc: "Extremely air-purifying and hard to kill. Water every 2-3 weeks." },
-        { name: "Lavender", cat: "Herb", light: "Full Sun", water: "Low", diff: "Medium", desc: "Requires well-draining sandy soil. Highly fragrant blooms." },
-        { name: "Sunflower", cat: "Flower", light: "Full Sun", water: "Medium", diff: "Very Easy", desc: "Fast-growing annual. Great for attracting pollinators." },
-        { name: "Pothos (Devil's Ivy)", cat: "Indoor", light: "Low to Medium", water: "Low-Medium", diff: "Very Easy", desc: "Trailing vine. Highly resilient and easy to propagate in water." }
-    ];
-
-    function renderPlants(data) {
-        const container = document.getElementById('plant-results');
-        container.innerHTML = '';
-
-        if(data.length === 0) {
-            container.innerHTML = '<p style="font-size:0.85rem; color:var(--text-muted);">No matching plants found.</p>';
-            return;
+        .tab-button.active {
+            background: linear-gradient(135deg, var(--emerald-primary), #047857);
+            border-color: var(--emerald-bright);
+            color: #ffffff;
+            box-shadow: 0 8px 20px var(--emerald-glow);
         }
 
-        data.forEach(p => {
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.innerHTML = `
-                <h3>${p.name}</h3>
-                <div>
-                    <span class="tag">${p.cat}</span>
-                    <span class="tag">${p.light}</span>
-                    <span class="tag">Water: ${p.water}</span>
-                </div>
-                <p style="font-size: 0.8rem; color: var(--text-muted); margin: 8px 0 0 0;">${p.desc}</p>
-            `;
-            container.appendChild(card);
-        });
-    }
-
-    function filterPlants() {
-        const query = document.getElementById('plant-search').value.toLowerCase();
-        const filtered = PLANTS.filter(p => 
-            p.name.toLowerCase().includes(query) || 
-            p.cat.toLowerCase().includes(query) ||
-            p.light.toLowerCase().includes(query)
-        );
-        renderPlants(filtered);
-    }
-
-    // TAB NAVIGATION
-    function switchTab(tabId) {
-        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-
-        event.target.classList.add('active');
-        document.getElementById(tabId).classList.add('active');
-    }
-
-    // ZONE LOOKUP
-    function lookupZone() {
-        const zip = document.getElementById('zip-input').value.trim();
-        const output = document.getElementById('zone-output');
-
-        if(!zip) {
-            alert('Please enter a valid ZIP code.');
-            return;
-        }
-
-        output.style.display = 'block';
-        output.innerHTML = `
-            <strong>ESTIMATED SECTOR / ZONE DATA FOR ZIP ${zip}:</strong><br>
-            • <strong>USDA Hardiness Zone:</strong> Zone 7a - 8a (Standard temperate growing region)<br>
-            • <strong>Last Spring Frost:</strong> Approx. April 15 - April 30<br>
-            • <strong>First Autumn Frost:</strong> Approx. October 20 - November 5<br>
-            • <strong>Current Recommendation:</strong> Excellent time for soil composting, planting cool-season leafy greens, and prepping seed swap inventory.
-        `;
-    }
-
-    // SWAP FORM SUBMISSION
-    function submitSwapRegistry(e) {
-        e.preventDefault();
-        const name = document.getElementById('swap-name').value;
-        const email = document.getElementById('swap-email').value;
-        const zip = document.getElementById('swap-zip').value;
-        const interests = document.getElementById('swap-interests').value;
-
-        fetch("https://formsubmit.co/ajax/e4077274e499dc5b0331d721f4ce7ee5", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                "Gardener Name": name,
-                "Email": email,
-                "ZIP Sector": zip,
-                "Swap Interests": interests,
-                "_subject": "NEW 4BUDS GARDENING MEMBER: " + zip
-            })
-        }).catch(err => console.log(err));
-
-        document.getElementById('swap-success').style.display = 'block';
-    }
-
-    // SAVE CHECKLIST STATE TO LOCALSTORAGE
-    function saveChecklist() {
-        for(let i = 1; i <= 8; i++) {
-            const cb = document.getElementById('c' + i);
-            localStorage.setItem('4buds_chk_' + i, cb.checked);
-        }
-    }
-
-    function loadChecklist() {
-        for(let i = 1; i <= 8; i++) {
-            const saved = localStorage.getItem('4buds_chk_' + i);
-            if(saved !== null) {
-                document.getElementById('c' + i).checked = (saved === 'true');
-            }
-        }
-    }
-
-    window.onload = function() {
-        renderPlants(PLANTS);
-        loadChecklist();
-    };
-</script>
-
-</body>
-</html>
+        /* TAB PANELS */
+        .tab-panel {
+            display: none;
